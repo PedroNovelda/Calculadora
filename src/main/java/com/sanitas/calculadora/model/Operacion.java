@@ -12,6 +12,18 @@ public class Operacion implements IOperacion {
                 this.operacion = new Suma();
                 break;
 
+            case "-":
+                this.operacion = new Resta();
+                break;
+
+            case "*":
+                this.operacion = new Multiplicacion();
+                break;
+
+            case "/":
+                this.operacion = new Division();
+                break;
+
             default:
                 System.out.println("EXCEPCION: Tipo de operacion no permitida");
                 break;
