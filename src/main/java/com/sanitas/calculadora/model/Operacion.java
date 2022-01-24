@@ -4,6 +4,20 @@ public class Operacion implements IOperacion {
 
     private IOperacion operacion;
 
+    public Operacion(String operacion) {
+
+        switch (operacion)
+        {
+            case "+":
+                this.operacion = new Suma();
+                break;
+
+            default:
+                System.out.println("EXCEPCION: Tipo de operacion no permitida");
+                break;
+        }
+    }
+
     public double calcular(double a, double b) {
 
         return operacion.calcular(a, b);
