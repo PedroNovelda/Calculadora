@@ -8,6 +8,6 @@ class CalculadoraApplicationTests {
 
 	@Test
 	void contextLoads() {
+		CalculadoraApplication.main(new String[0]);
 	}
-
 }

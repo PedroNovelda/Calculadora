@@ -26,7 +26,7 @@ public class CalculadoraControllerTest {
     @Test
     public void getResultadoOperacionSuma() throws Exception {
 
-        Mockito.when(calculadoraService.calcula(2d, "+", 3d)).thenReturn(5d);
+        Mockito.when(calculadoraService.calcula(Mockito.anyDouble(), Mockito.anyString(), Mockito.anyDouble())).thenReturn(5d);
 
         MockHttpServletResponse response = mockMvc.perform(get("/api/calculadora")
                                             .param("numero1", "2")

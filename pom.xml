@@ -39,6 +39,12 @@
 			<version>9.0.36</version>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>com.sanitas</groupId>
+			<artifactId>tracer</artifactId>
+			<version>1.0.0</version>
+		</dependency>
     </dependencies>
 
 	<build>
