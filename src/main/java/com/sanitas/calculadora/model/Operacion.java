@@ -6,6 +6,21 @@ public class Operacion implements IOperacion {
 
     public Operacion(String operacion) {
 
+        this.setOperacion(operacion);
+    }
+
+    public double calcular(double a, double b) {
+
+        return operacion.calcular(a, b);
+    }
+
+    public void setOperacion(IOperacion operacion) {
+
+        this.operacion = operacion;
+    }
+
+    public void setOperacion(String operacion) {
+
         switch (operacion)
         {
             case "+":
@@ -28,15 +43,5 @@ public class Operacion implements IOperacion {
                 System.out.println("EXCEPCION: Tipo de operacion no permitida");
                 break;
         }
-    }
-
-    public double calcular(double a, double b) {
-
-        return operacion.calcular(a, b);
-    }
-
-    public void setOperacion(IOperacion operacion) {
-
-        this.operacion = operacion;
     }
 }
