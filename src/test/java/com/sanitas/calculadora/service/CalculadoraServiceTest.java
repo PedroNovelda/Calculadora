@@ -1,0 +1,33 @@
+package com.sanitas.calculadora.service;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+public class CalculadoraServiceTest {
+
+    private static CalculadoraService calculadoraService;
+
+    @BeforeAll
+    public static void setup() {
+        calculadoraService = new CalculadoraService();
+    }
+
+    /**
+     * Test del Servicio con Suma
+     */
+    @Test
+    public void calculadoraServiceCalculaSuma() {
+
+        Assertions.assertEquals(calculadoraService.calcula(1d, "+", 2d), 3d);
+    }
+
+    /**
+     * Test del Servicio con Resta
+     */
+    @Test
+    public void calculadoraServiceCalculaResta() {
+
+        Assertions.assertEquals(calculadoraService.calcula(5d, "-", 3d), 2d);
+    }
+}
