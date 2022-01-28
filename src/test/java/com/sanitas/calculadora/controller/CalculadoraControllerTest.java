@@ -38,4 +38,19 @@ public class CalculadoraControllerTest {
         Assertions.assertEquals(response.getStatus(), HttpStatus.OK.value());
         Assertions.assertEquals(response.getContentAsString(), new Double(5).toString());
     }
+
+    @Test
+    public void getExcepcionOperacionDivision() throws Exception {
+
+        Mockito.when(calculadoraService.calcula(Mockito.anyDouble(), Mockito.anyString(), Mockito.anyDouble())).thenThrow(new ArithmeticException());
+
+        MockHttpServletResponse response = mockMvc.perform(get("/api/calculadora")
+                .param("numero1", "2")
+                .param("operador", "/")
+                .param("numero2", "0"))
+                .andExpect(status().isBadRequest())
+                .andReturn().getResponse();
+
+        Assertions.assertEquals(response.getStatus(), HttpStatus.BAD_REQUEST.value());
+    }
 }

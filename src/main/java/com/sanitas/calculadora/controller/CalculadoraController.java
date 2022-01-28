@@ -5,10 +5,7 @@ import io.corp.calculator.TracerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Gestiona el método GET /api/calculadora
@@ -31,6 +28,14 @@ public class CalculadoraController {
 
         tracer.trace("CalculadoraController :: " + resultado);
 
-        return new ResponseEntity<>(resultado, HttpStatus.OK);
+        return ResponseEntity.status(HttpStatus.OK).body(resultado);
+    }
+
+    @ExceptionHandler(ArithmeticException.class)
+    public ResponseEntity<String> handleArithmeticException(ArithmeticException exception) {
+
+        tracer.trace("CalculadoraController :: EXCEPCION");
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exception.getMessage());
     }
 }

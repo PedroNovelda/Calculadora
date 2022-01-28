@@ -8,10 +8,18 @@ public class Division implements IOperacion {
         double resultado = 0.0;
 
         try {
-            resultado = a / b;
+
+            if (b == 0) {
+                throw new ArithmeticException();
+            }
+
+            else {
+                resultado = a / b;
+            }
         }
+
         catch (ArithmeticException e) {
-            System.out.println("EXCEPCION: Division por cero");
+            throw new ArithmeticException("EXCEPCION: Division por cero");
         }
 
         return resultado;

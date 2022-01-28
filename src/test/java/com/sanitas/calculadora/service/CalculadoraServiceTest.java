@@ -30,4 +30,11 @@ public class CalculadoraServiceTest {
 
         Assertions.assertEquals(calculadoraService.calcula(5d, "-", 3d), 2d);
     }
+
+    @Test
+    public void calculadoraServiceCalculaDivisionPorCero() throws Exception {
+
+        Exception exception = Assertions.assertThrows(ArithmeticException.class, () -> calculadoraService.calcula(5d, "/", 0d));
+        Assertions.assertEquals("EXCEPCION: Division por cero", exception.getMessage());
+    }
 }

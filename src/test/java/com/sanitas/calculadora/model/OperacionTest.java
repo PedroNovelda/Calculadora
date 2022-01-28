@@ -48,4 +48,16 @@ public class OperacionTest {
 
         Assertions.assertEquals(operacion.calcular(9,3), new Double(3));
     }
+
+    /**
+     * Test de la Operacion Division por Cero
+     */
+    @Test
+    public void operacionCalcularDivisionPorCero() {
+
+        Operacion operacion = new Operacion("/");
+
+        Exception exception = Assertions.assertThrows(ArithmeticException.class, () -> operacion.calcular(9, 0));
+        Assertions.assertEquals("EXCEPCION: Division por cero", exception.getMessage());
+    }
 }
