@@ -29,7 +29,7 @@ public class CalculadoraController {
 
         double resultado = calculadoraService.calcula(numero1, operador, numero2);
 
-        tracer.trace("CalculadoraController :: Resultado = " + resultado);
+        tracer.trace("CalculadoraController :: " + resultado);
 
         return new ResponseEntity<>(resultado, HttpStatus.OK);
     }

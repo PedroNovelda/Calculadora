@@ -1,8 +1,12 @@
 package com.sanitas.calculadora.model;
 
+import io.corp.calculator.TracerImpl;
+
 public class Operacion implements IOperacion {
 
     private IOperacion operacion;
+
+    TracerImpl tracer = new TracerImpl();
 
     public Operacion(String operacion) {
 
@@ -11,7 +15,11 @@ public class Operacion implements IOperacion {
 
     public double calcular(double a, double b) {
 
-        return operacion.calcular(a, b);
+        double resultado = operacion.calcular(a, b);
+
+        tracer.trace("Operacion :: " + resultado);
+
+        return resultado;
     }
 
     public void setOperacion(IOperacion operacion) {
