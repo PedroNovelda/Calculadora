@@ -11,7 +11,7 @@ public class OperacionTest {
     @Test
     public void operacionCalcularSuma() {
 
-        Operacion operacion = new Operacion("+");
+        Operacion operacion = new Operacion("suma");
 
         Assertions.assertEquals(operacion.calcular(1,2), new Double(3));
     }
@@ -22,7 +22,7 @@ public class OperacionTest {
     @Test
     public void operacionCalcularResta() {
 
-        Operacion operacion = new Operacion("-");
+        Operacion operacion = new Operacion("resta");
 
         Assertions.assertEquals(operacion.calcular(6,5), new Double(1));
     }
@@ -33,7 +33,7 @@ public class OperacionTest {
     @Test
     public void operacionCalcularMultiplicacion() {
 
-        Operacion operacion = new Operacion("*");
+        Operacion operacion = new Operacion("multiplicacion");
 
         Assertions.assertEquals(operacion.calcular(4,-2), new Double(-8));
     }
@@ -44,7 +44,7 @@ public class OperacionTest {
     @Test
     public void operacionCalcularDivision() {
 
-        Operacion operacion = new Operacion("/");
+        Operacion operacion = new Operacion("division");
 
         Assertions.assertEquals(operacion.calcular(9,3), new Double(3));
     }
@@ -55,7 +55,7 @@ public class OperacionTest {
     @Test
     public void operacionCalcularDivisionPorCero() {
 
-        Operacion operacion = new Operacion("/");
+        Operacion operacion = new Operacion("division");
 
         Exception exception = Assertions.assertThrows(ArithmeticException.class, () -> operacion.calcular(9, 0));
         Assertions.assertEquals("EXCEPCION: Division por cero", exception.getMessage());

@@ -21,10 +21,10 @@ public class CalculadoraController {
 
     @GetMapping(value = "/calculadora")
     public ResponseEntity<Double> calculadora(@RequestParam(name = "numero1") Double numero1,
-                                              @RequestParam(name = "operador") String operador,
-                                              @RequestParam(name = "numero2") Double numero2) {
+                                              @RequestParam(name = "numero2") Double numero2,
+                                              @RequestParam(name = "operador") String operador) {
 
-        double resultado = calculadoraService.calcula(numero1, operador, numero2);
+        double resultado = calculadoraService.calcula(numero1, numero2, operador);
 
         tracer.trace("CalculadoraController :: " + resultado);
 

@@ -8,9 +8,9 @@ public class Operacion implements IOperacion {
 
     TracerImpl tracer = new TracerImpl();
 
-    public Operacion(String operacion) {
+    public Operacion(String operador) {
 
-        this.setOperacion(operacion);
+        this.setOperacion(operador);
     }
 
     public double calcular(double a, double b) {
@@ -27,29 +27,28 @@ public class Operacion implements IOperacion {
         this.operacion = operacion;
     }
 
-    public void setOperacion(String operacion) {
+    public void setOperacion(String operador) {
 
-        switch (operacion)
+        switch (operador)
         {
-            case "+":
+            case "suma":
                 this.operacion = new Suma();
                 break;
 
-            case "-":
+            case "resta":
                 this.operacion = new Resta();
                 break;
 
-            case "*":
+            case "multiplicacion":
                 this.operacion = new Multiplicacion();
                 break;
 
-            case "/":
+            case "division":
                 this.operacion = new Division();
                 break;
 
             default:
-                System.out.println("EXCEPCION: Tipo de operacion no permitida");
-                break;
+                throw new ArithmeticException("EXCEPCION: Tipo de operacion no permitida");
         }
     }
 }

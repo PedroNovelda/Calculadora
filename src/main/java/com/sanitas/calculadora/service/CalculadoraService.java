@@ -9,7 +9,7 @@ public class CalculadoraService implements ICalculadoraService {
 
     TracerImpl tracer = new TracerImpl();
 
-    public Double calcula(Double numero1, String operador, Double numero2) {
+    public Double calcula(Double numero1, Double numero2, String operador) {
 
         Operacion operacion = new Operacion(operador);
 

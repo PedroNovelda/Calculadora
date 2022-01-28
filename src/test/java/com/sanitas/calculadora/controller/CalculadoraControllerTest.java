@@ -26,12 +26,12 @@ public class CalculadoraControllerTest {
     @Test
     public void getResultadoOperacionSuma() throws Exception {
 
-        Mockito.when(calculadoraService.calcula(Mockito.anyDouble(), Mockito.anyString(), Mockito.anyDouble())).thenReturn(5d);
+        Mockito.when(calculadoraService.calcula(Mockito.anyDouble(), Mockito.anyDouble(), Mockito.anyString())).thenReturn(5d);
 
         MockHttpServletResponse response = mockMvc.perform(get("/api/calculadora")
                                             .param("numero1", "2")
-                                            .param("operador", "+")
-                                            .param("numero2", "3"))
+                                            .param("numero2", "3")
+                                            .param("operador", "suma"))
                                             .andExpect(status().isOk())
                                             .andReturn().getResponse();
 
@@ -42,12 +42,12 @@ public class CalculadoraControllerTest {
     @Test
     public void getExcepcionOperacionDivision() throws Exception {
 
-        Mockito.when(calculadoraService.calcula(Mockito.anyDouble(), Mockito.anyString(), Mockito.anyDouble())).thenThrow(new ArithmeticException());
+        Mockito.when(calculadoraService.calcula(Mockito.anyDouble(), Mockito.anyDouble(), Mockito.anyString())).thenThrow(new ArithmeticException());
 
         MockHttpServletResponse response = mockMvc.perform(get("/api/calculadora")
                 .param("numero1", "2")
-                .param("operador", "/")
-                .param("numero2", "0"))
+                .param("numero2", "0")
+                .param("operador", "division"))
                 .andExpect(status().isBadRequest())
                 .andReturn().getResponse();
 
