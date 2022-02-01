@@ -35,8 +35,8 @@ public class CalculadoraControllerTest {
                                             .andExpect(status().isOk())
                                             .andReturn().getResponse();
 
-        Assertions.assertEquals(response.getStatus(), HttpStatus.OK.value());
-        Assertions.assertEquals(response.getContentAsString(), new Double(5).toString());
+        Assertions.assertEquals(HttpStatus.OK.value(), response.getStatus());
+        Assertions.assertEquals(new Double(5).toString(), response.getContentAsString());
     }
 
     @Test
@@ -51,6 +51,6 @@ public class CalculadoraControllerTest {
                 .andExpect(status().isBadRequest())
                 .andReturn().getResponse();
 
-        Assertions.assertEquals(response.getStatus(), HttpStatus.BAD_REQUEST.value());
+        Assertions.assertEquals(HttpStatus.BAD_REQUEST.value(), response.getStatus());
     }
 }

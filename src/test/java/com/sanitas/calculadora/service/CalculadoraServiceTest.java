@@ -10,6 +10,7 @@ public class CalculadoraServiceTest {
 
     @BeforeAll
     public static void setup() {
+
         calculadoraService = new CalculadoraService();
     }
 
@@ -19,7 +20,7 @@ public class CalculadoraServiceTest {
     @Test
     public void calculadoraServiceCalculaSuma() {
 
-        Assertions.assertEquals(calculadoraService.calcula(1d, 2d, "suma"), 3d);
+        Assertions.assertEquals(3d, calculadoraService.calcula(1d, 2d, "suma"));
     }
 
     /**
@@ -28,7 +29,7 @@ public class CalculadoraServiceTest {
     @Test
     public void calculadoraServiceCalculaResta() {
 
-        Assertions.assertEquals(calculadoraService.calcula(5d, 3d, "resta"), 2d);
+        Assertions.assertEquals(2d, calculadoraService.calcula(5d, 3d, "resta"));
     }
 
     @Test

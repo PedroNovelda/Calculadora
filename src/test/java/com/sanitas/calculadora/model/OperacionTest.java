@@ -13,7 +13,7 @@ public class OperacionTest {
 
         Operacion operacion = new Operacion("suma");
 
-        Assertions.assertEquals(operacion.calcular(1,2), new Double(3));
+        Assertions.assertEquals(3d, operacion.calcular(1,2));
     }
 
     /**
@@ -24,7 +24,7 @@ public class OperacionTest {
 
         Operacion operacion = new Operacion("resta");
 
-        Assertions.assertEquals(operacion.calcular(6,5), new Double(1));
+        Assertions.assertEquals(1d, operacion.calcular(6,5));
     }
 
     /**
@@ -35,7 +35,7 @@ public class OperacionTest {
 
         Operacion operacion = new Operacion("multiplicacion");
 
-        Assertions.assertEquals(operacion.calcular(4,-2), new Double(-8));
+        Assertions.assertEquals(-8d, operacion.calcular(4,-2));
     }
 
     /**
@@ -46,7 +46,7 @@ public class OperacionTest {
 
         Operacion operacion = new Operacion("division");
 
-        Assertions.assertEquals(operacion.calcular(9,3), new Double(3));
+        Assertions.assertEquals(3d, operacion.calcular(9,3));
     }
 
     /**
